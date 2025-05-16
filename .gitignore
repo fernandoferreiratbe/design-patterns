@@ -1,0 +1,7 @@
+# IDE config folder
+.vscode
+.idea
+
+# Python files and directory
+__pycache__
+
