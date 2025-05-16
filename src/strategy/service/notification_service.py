@@ -22,7 +22,5 @@ class NotificationService:
             logger.info(f"Sending slack notification to the user with the message: {message}")
         elif channel == "instagram":
             logger.info(f"Sending instagram notification to the user with the message: {message}")
-        elif channel == "twitter":
-            logger.info(f"Sending twitter notification to the user with the message: {message}")
         else:
             raise ValueError(f"Invalid channel: {channel}")
