@@ -1,0 +1,28 @@
+""" This class will be used to manage the notification service """
+
+from src.strategy.service.email_notification_service_provider import EmailNotificationServiceProvider
+from src.strategy.service.whatsapp_notification_service_provider import WhatsappNotificationServiceProvider
+from src.strategy.service.discord_notification_service_provider import DiscordNotificationServiceProvider
+from src.strategy.service.slack_notification_service_provider import SlackNotificationServiceProvider
+from src.strategy.service.instagram_notification_service_provider import InstagramNotificationServiceProvider
+from src.strategy.service.telegram_notification_service_provider import TelegramNotificationServiceProvider
+
+class NotificationServiceStrategy:
+    """ This class will be used to manage the notification service """
+    
+    def __init__(self):
+        self.notification_providers = {
+            "email": EmailNotificationServiceProvider(),
+            "whatsapp": WhatsappNotificationServiceProvider(),
+            "discord": DiscordNotificationServiceProvider(),
+            "slack": SlackNotificationServiceProvider(),
+            "instagram": InstagramNotificationServiceProvider(),
+            "telegram": TelegramNotificationServiceProvider(),
+        }
+
+    def send_notification(self, message: str, channel: str) -> None:
+        """This method will send a notification to the user via the given channel"""
+        if channel not in self.notification_providers:
+            raise ValueError(f"Invalid channel: {channel}")
+        
+        self.notification_providers[channel].notify(message)
