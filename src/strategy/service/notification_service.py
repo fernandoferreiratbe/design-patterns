@@ -1,26 +1,49 @@
-"""This service will be used to notify the user with the given message and a messager type"""
+"""This service will be used to notify the user with the given message using different notification strategies"""
 
-logger = logging.getLogger(__name__)
-
+from typing import Dict, Type
+from .notification_strategy import (
+    NotificationStrategy,
+    EmailNotification,
+    WhatsAppNotification,
+    TelegramNotification,
+    DiscordNotification,
+    SlackNotification,
+    InstagramNotification,
+    TwitterNotification
+)
 
 class NotificationService:
-    """ This implementation has too much if statements, and it's not scalable.
-    We should use the strategy pattern to avoid this problem.
-    """
+    """NotificationService using the strategy pattern to handle different notification channels"""
+    
+    def __init__(self):
+        # Initialize the available strategies
+        self._strategies: Dict[str, Type[NotificationStrategy]] = {
+            "email": EmailNotification,
+            "whatsapp": WhatsAppNotification,
+            "telegram": TelegramNotification,
+            "discord": DiscordNotification,
+            "slack": SlackNotification,
+            "instagram": InstagramNotification,
+            "twitter": TwitterNotification
+        }
     
     def notify(self, message: str, channel: str) -> None:
-        """This method will notify the user with the given message and a messager type"""
-        if channel == "email":
-            logger.info(f"Sending email notification to the user with the message: {message}")
-        elif channel == "whatsapp":
-            logger.info(f"Sending whatsapp notification to the user with the message: {message}")
-        elif channel == "telegram":
-            logger.info(f"Sending telegram notification to the user with the message: {message}")
-        elif channel == "discord":
-            logger.info(f"Sending discord notification to the user with the message: {message}")
-        elif channel == "slack":
-            logger.info(f"Sending slack notification to the user with the message: {message}")
-        elif channel == "instagram":
-            logger.info(f"Sending instagram notification to the user with the message: {message}")
-        else:
-            raise ValueError(f"Invalid channel: {channel}")
+        """
+        Notify using the specified channel
+        
+        Args:
+            message: The message to send
+            channel: The notification channel to use
+        
+        Raises:
+            ValueError: If the channel is not supported
+        """
+        try:
+            # Get the strategy class for the channel
+            strategy_class = self._strategies[channel]
+            # Create an instance of the strategy
+            strategy = strategy_class()
+            # Use the strategy to send the notification
+            strategy.notify(message)
+        except KeyError:
+            raise ValueError(f"Invalid channel: {channel}") 
