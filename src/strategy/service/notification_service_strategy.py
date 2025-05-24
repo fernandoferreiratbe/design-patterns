@@ -1,11 +1,11 @@
 """ This class will be used to manage the notification service """
 
-from src.strategy.service.email_notification_service_provider import EmailNotificationServiceProvider
-from src.strategy.service.whatsapp_notification_service_provider import WhatsappNotificationServiceProvider
-from src.strategy.service.discord_notification_service_provider import DiscordNotificationServiceProvider
-from src.strategy.service.slack_notification_service_provider import SlackNotificationServiceProvider
-from src.strategy.service.instagram_notification_service_provider import InstagramNotificationServiceProvider
-from src.strategy.service.telegram_notification_service_provider import TelegramNotificationServiceProvider
+from src.strategy.service.provider.email_notification_service_provider import EmailNotificationServiceProvider
+from src.strategy.service.provider.whatsapp_notification_service_provider import WhatsappNotificationServiceProvider
+from src.strategy.service.provider.discord_notification_service_provider import DiscordNotificationServiceProvider
+from src.strategy.service.provider.slack_notification_service_provider import SlackNotificationServiceProvider
+from src.strategy.service.provider.instragram_notification_service_provider import InstagramNotificationServiceProvider
+from src.strategy.service.provider.telegram_notification_service_provider import TelegramNotificationServiceProvider
 
 class NotificationServiceStrategy:
     """ This class will be used to manage the notification service """
