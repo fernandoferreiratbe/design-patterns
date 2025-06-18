@@ -9,4 +9,4 @@ class CreditCardPaymentService(Payment):
 
     def pay(self, bill: Bill) -> PaymentStatus:
         logger.info("Credit Card Payment Service Implementation")
-        return PaymentStatus.SUCCESS
+        return PaymentStatus.PENDENT

@@ -9,4 +9,4 @@ class DebitCardPaymentService(Payment):
 
     def pay(self, bill: Bill) -> PaymentStatus:
         logger.info("Debit Card Payment Service Implementation")
-        return PaymentStatus.SUCCESS
+        return PaymentStatus.FAILED
