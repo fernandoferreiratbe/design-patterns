@@ -8,5 +8,5 @@ from src.strategy.payer.model.payment_status import PaymentStatus
 class PixPaymentService(Payment):
 
     def pay(self, bill: Bill) -> PaymentStatus:
-        logger.info("Pix Payment Service Implementation")
+        logger.info("Executing Pix Payment Service...")
         return PaymentStatus.SUCCESS

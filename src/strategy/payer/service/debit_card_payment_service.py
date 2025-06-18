@@ -8,5 +8,5 @@ from src.strategy.payer.model.payment_status import PaymentStatus
 class DebitCardPaymentService(Payment):
 
     def pay(self, bill: Bill) -> PaymentStatus:
-        logger.info("Debit Card Payment Service Implementation")
+        logger.info("Executing Debit Card Payment Service...")
         return PaymentStatus.FAILED

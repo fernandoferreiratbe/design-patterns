@@ -8,5 +8,5 @@ from src.strategy.payer.model.payment_status import PaymentStatus
 class CreditCardPaymentService(Payment):
 
     def pay(self, bill: Bill) -> PaymentStatus:
-        logger.info("Credit Card Payment Service Implementation")
+        logger.info("Executing Credit Card Payment Service...")
         return PaymentStatus.PENDENT
