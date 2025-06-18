@@ -1,4 +1,4 @@
-"""This service will be used to notify the user with the given message and a messager type"""
+"""This notificator will be used to notify the user with the given message and a messager type"""
 
 logger = logging.getLogger(__name__)
 

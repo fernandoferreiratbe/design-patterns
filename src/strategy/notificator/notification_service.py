@@ -1,4 +1,4 @@
-"""This service will be used to notify the user with the given message using different notification strategies"""
+"""This notificator will be used to notify the user with the given message using different notification strategies"""
 
 from typing import Dict, Type
 from .notification_strategy import (
